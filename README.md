@@ -43,6 +43,7 @@ Execute os gates locais de qualidade e o conjunto Chromium:
 
 ```bash
 pnpm verify
+pnpm exec playwright install chromium
 pnpm test:e2e
 ```
 
