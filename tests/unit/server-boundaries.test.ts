@@ -58,6 +58,14 @@ describe("client/server Supabase boundaries", () => {
     ).toEqual([]);
   });
 
+  it("does not treat a concatenated string expression as a client directive", () => {
+    expect(
+      findForbiddenClientImports(
+        "'use client' + value;\nimport \"@/lib/env/server\";",
+      ),
+    ).toEqual([]);
+  });
+
   it("reads browser configuration through statically referenced public variables", async () => {
     const browserClientSource = await readFile(
       path.join(repositoryRoot, "lib/supabase/browser.ts"),

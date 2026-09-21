@@ -3,7 +3,7 @@ const forbiddenClientImports = [
   "@/lib/supabase/admin",
 ] as const;
 const clientDirectivePattern =
-  /^\s*(?:(?:\/\/[^\n]*(?:\n|$)|\/\*[\s\S]*?\*\/)\s*)*["']use client["']\s*;?/;
+  /^\s*(?:(?:\/\/[^\n]*(?:\n|$)|\/\*[\s\S]*?\*\/)\s*)*["']use client["'](?=[ \t\f\v\r]*(?:;|\n|$))/;
 
 export function findForbiddenClientImports(source: string): string[] {
   if (!clientDirectivePattern.test(source)) {
