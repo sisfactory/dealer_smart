@@ -43,6 +43,34 @@ describe("client/server Supabase boundaries", () => {
         '"use client";\nimport { createBrowserSupabaseClient } from "@/lib/supabase/browser";',
       ),
     ).toEqual([]);
+    expect(
+      findForbiddenClientImports(
+        '\'use client\';\nimport "@/lib/env/server";\nimport { createAdminSupabaseClient } from "@/lib/supabase/admin";',
+      ),
+    ).toEqual(["@/lib/env/server", "@/lib/supabase/admin"]);
+  });
+
+  it("does not treat a later string literal as a client directive", () => {
+    expect(
+      findForbiddenClientImports(
+        'const directive = "use client";\nimport "@/lib/env/server";',
+      ),
+    ).toEqual([]);
+  });
+
+  it("reads browser configuration through statically referenced public variables", async () => {
+    const browserClientSource = await readFile(
+      path.join(repositoryRoot, "lib/supabase/browser.ts"),
+      "utf8",
+    );
+
+    expect(browserClientSource).not.toContain("parsePublicEnv(process.env)");
+    expect(browserClientSource).toContain(
+      "NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL",
+    );
+    expect(browserClientSource).toMatch(
+      /NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY:\s*process\.env\.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY/,
+    );
   });
 
   it("keeps privileged Supabase modules out of client components", async () => {
