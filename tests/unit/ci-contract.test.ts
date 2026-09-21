@@ -194,6 +194,27 @@ const rejectedMutations: MutationFixture[] = [
       ),
   },
   {
+    name: "a Supabase remote command",
+    mutate: (workflow) =>
+      workflow.replace(
+        "      - run: pnpm verify",
+        "      - run: pnpm exec supabase link --project-ref example",
+      ),
+  },
+  {
+    name: "a network command",
+    mutate: (workflow) =>
+      workflow.replace(
+        "      - run: pnpm verify",
+        "      - run: curl https://example.invalid",
+      ),
+  },
+  {
+    name: "a deploy command",
+    mutate: (workflow) =>
+      workflow.replace("      - run: pnpm verify", "      - run: pnpm deploy"),
+  },
+  {
     name: "an extra environment value",
     mutate: (workflow) =>
       workflow.replace(
