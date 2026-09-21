@@ -1,7 +1,18 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/ui/cn";
+
+describe("cn", () => {
+  it("keeps only the final Tailwind class for a conflicting utility", () => {
+    const classes = cn("rounded-[4px] px-2", false, "px-6");
+
+    expect(classes).toContain("rounded-[4px]");
+    expect(classes).toContain("px-6");
+    expect(classes).not.toContain("px-2");
+  });
+});
 
 describe("Button", () => {
   it("exposes button semantics and focusable content", async () => {
@@ -42,5 +53,29 @@ describe("Card", () => {
 
     expect(screen.getByRole("heading", { name: "Visão geral" })).toBeVisible();
     expect(screen.getByText("Conteúdo")).toBeVisible();
+  });
+
+  it("associates each card with its own heading ID", () => {
+    render(
+      <>
+        <Card title="Visão geral">Primeiro conteúdo</Card>
+        <Card title="Indicadores">Segundo conteúdo</Card>
+      </>,
+    );
+
+    const cards = screen.getAllByRole("article");
+    const labelledBy = cards.map((card) =>
+      card.getAttribute("aria-labelledby"),
+    );
+
+    expect(labelledBy[0]).toBeTruthy();
+    expect(labelledBy[1]).toBeTruthy();
+    expect(labelledBy[0]).not.toBe(labelledBy[1]);
+
+    for (const [index, card] of cards.entries()) {
+      const heading = within(card).getByRole("heading");
+
+      expect(heading).toHaveAttribute("id", labelledBy[index]);
+    }
   });
 });

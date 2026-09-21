@@ -28,9 +28,23 @@ test("keeps the shell keyboard-accessible without horizontal overflow at 320px",
   await page.keyboard.press("Enter");
   await expect(page.getByRole("main")).toBeFocused();
 
-  const navigationControl = page.getByText("Navegação", { exact: true });
-  await expect(navigationControl).toBeVisible();
-  await navigationControl.click();
+  await page.goto("/");
+  const themeToggle = page.getByRole("button", {
+    name: "Ativar modo escuro",
+  });
+  await expect(themeToggle).toBeVisible();
+  await page.keyboard.press("Tab");
+  await expect(skipLink).toBeFocused();
+  await page.keyboard.press("Tab");
+  await expect(themeToggle).toBeFocused();
+  await page.keyboard.press("Tab");
+
+  const navigationControl = page.locator("summary");
+  await expect(navigationControl).toBeFocused();
+  await page.keyboard.press("Enter");
+
+  await expect(page.locator("details")).toHaveAttribute("open", "");
+  await expect(page.getByRole("link", { name: "Visão geral" })).toBeVisible();
   await expect(page.getByRole("button", { name: "Governança" })).toBeDisabled();
 });
 
