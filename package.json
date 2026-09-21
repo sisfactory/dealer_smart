@@ -2,6 +2,7 @@
   "name": "dealer-smart",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
   "packageManager": "pnpm@12.5.1",
   "engines": {
     "node": ">=24.21.0 <25"
