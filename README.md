@@ -18,3 +18,4 @@ A especificação arquitetural aprovada está em [`docs/superpowers/specs/2026-0
 
 Esta etapa entrega documentação e decisões arquiteturais. Ela não representa aplicação implementada, migrations aplicadas, projeto Supabase configurado, deploy ou homologação.
 
+# dealer_smart
