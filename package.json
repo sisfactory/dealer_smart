@@ -18,6 +18,9 @@
     "test": "vitest",
     "test:run": "vitest run",
     "test:e2e": "playwright test",
+    "supabase:start": "supabase --profile supabase start",
+    "supabase:stop": "supabase --profile supabase stop",
+    "supabase:status": "supabase --profile supabase status",
     "verify": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test:run && pnpm build"
   },
   "dependencies": {

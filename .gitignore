@@ -15,3 +15,7 @@ test-results/
 # Tooling artifacts
 *.tsbuildinfo
 .eslintcache
+
+# Supabase local CLI generated state (configuration remains versioned)
+supabase/.temp/
+supabase/.branches/
