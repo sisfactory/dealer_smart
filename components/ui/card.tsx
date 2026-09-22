@@ -24,7 +24,7 @@ export function Card({ className, title, children, ...props }: CardProps) {
       >
         {title}
       </h2>
-      <div className="mt-2 text-[length:var(--font-size-body-md)] leading-[var(--line-height-body-md)] text-[var(--text-secondary)]">
+      <div className="mt-2 text-[length:var(--font-size-body-lg)] leading-[var(--line-height-body-lg)] text-[var(--text-secondary)]">
         {children}
       </div>
     </article>

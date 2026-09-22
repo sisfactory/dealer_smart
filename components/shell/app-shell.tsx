@@ -9,7 +9,7 @@ function NavigationItems({ descriptionId }: { descriptionId: string }) {
       <li>
         <a
           aria-current="page"
-          className="block rounded-[4px] px-3 py-2 font-[family-name:var(--font-body)] text-[length:var(--font-size-label-md)] leading-[var(--line-height-label-md)] font-semibold text-[var(--text-primary)] hover:bg-[var(--surface-card-high)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-ring)]"
+          className="block rounded-[4px] px-3 py-2 font-[family-name:var(--font-body)] text-sm leading-5 font-semibold text-[var(--text-primary)] hover:bg-[var(--surface-card-high)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-ring)]"
           href={`#${mainContentId}`}
         >
           Visão geral
@@ -18,7 +18,7 @@ function NavigationItems({ descriptionId }: { descriptionId: string }) {
       <li>
         <button
           aria-describedby={descriptionId}
-          className="rounded-[4px] px-3 py-2 font-[family-name:var(--font-body)] text-[length:var(--font-size-label-md)] leading-[var(--line-height-label-md)] font-semibold text-[var(--text-muted)] disabled:cursor-not-allowed"
+          className="rounded-[4px] px-3 py-2 font-[family-name:var(--font-body)] text-sm leading-5 font-semibold text-[var(--text-muted)] disabled:cursor-not-allowed"
           disabled
           type="button"
         >
@@ -56,7 +56,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             <NavigationItems descriptionId="governanca-indisponivel-principal" />
           </nav>
           <details className="w-full sm:hidden">
-            <summary className="w-fit cursor-pointer rounded-[4px] px-3 py-2 font-[family-name:var(--font-body)] text-[length:var(--font-size-label-md)] leading-[var(--line-height-label-md)] font-semibold text-[var(--text-primary)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-ring)]">
+            <summary className="w-fit cursor-pointer rounded-[4px] px-3 py-2 font-[family-name:var(--font-body)] text-sm leading-5 font-semibold text-[var(--text-primary)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-ring)]">
               Navegação
             </summary>
             <nav aria-label="Navegação móvel" className="mt-2">

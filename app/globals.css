@@ -2,6 +2,32 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
+  --font-size-display-lg: 40px;
+  --line-height-display-lg: 48px;
+  --font-size-display-lg-mobile: 30px;
+  --line-height-display-lg-mobile: 38px;
+  --font-size-headline-xl: 32px;
+  --line-height-headline-xl: 40px;
+  --font-size-headline-xl-mobile: 24px;
+  --line-height-headline-xl-mobile: 32px;
+  --font-size-headline-lg: 24px;
+  --line-height-headline-lg: 32px;
+  --font-size-headline-md: 20px;
+  --line-height-headline-md: 28px;
+  --font-size-headline-sm: 16px;
+  --line-height-headline-sm: 24px;
+  --font-size-body-lg: 15px;
+  --line-height-body-lg: 24px;
+  --font-size-body-md: 13px;
+  --line-height-body-md: 20px;
+  --font-size-body-sm: 12px;
+  --line-height-body-sm: 18px;
+  --font-size-label-md: 12px;
+  --line-height-label-md: 16px;
+  --font-size-label-sm: 11px;
+  --line-height-label-sm: 14px;
+  --font-size-label-micro: 10px;
+  --line-height-label-micro: 12px;
   --bg-viewport: #f8f9ff;
   --surface: #f8f9ff;
   --surface-card: #ffffff;
