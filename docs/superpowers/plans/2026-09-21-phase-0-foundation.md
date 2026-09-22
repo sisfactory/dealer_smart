@@ -6,7 +6,7 @@
 
 **Architecture:** Build a single Next.js modular monolith without business features. Browser, request-scoped server, and privileged Supabase clients remain in separate modules; UI uses CSS-first Tailwind tokens and a minimal accessible shell. This plan stops at local foundation: creating or linking remote Supabase projects remains a separately authorized external gate.
 
-**Tech Stack:** Node.js 24.21.x, pnpm 12.5.1, Next.js 16.3.5, React 19.3.0, TypeScript 7.0.2 strict, Tailwind CSS 4.3.3, Supabase JS 2.116.0, Supabase SSR 0.12.7, Zod 4.6.5, Vitest 5.0.1, Testing Library 16.3.3, Playwright 1.63.0.
+**Tech Stack:** Node.js 24.21.x, pnpm 12.5.1, Next.js 16.3.5, React 19.3.0, TypeScript 6.0.3 strict, Tailwind CSS 4.3.3, Supabase JS 2.116.0, Supabase SSR 0.12.7, Zod 4.6.5, Vitest 5.0.1, Testing Library 16.3.3, Playwright 1.63.0.
 
 **Spec:** `docs/superpowers/specs/2026-09-21-dealer-smart-architecture-design.md`
 
@@ -116,10 +116,10 @@ Create `package.json` with `private: true`, `packageManager: "pnpm@12.5.1"`, Nod
     "@testing-library/jest-dom": "7.0.1",
     "@testing-library/react": "16.3.3",
     "@testing-library/user-event": "14.6.7",
-    "@types/node": "26.6.2",
+    "@types/node": "24.13.6",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
-    "eslint": "10.11.0",
+    "eslint": "9.39.5",
     "eslint-config-next": "16.3.5",
     "eslint-config-prettier": "10.1.8",
     "jsdom": "30.1.0",
@@ -128,7 +128,7 @@ Create `package.json` with `private: true`, `packageManager: "pnpm@12.5.1"`, Nod
     "prettier-plugin-tailwindcss": "0.8.1",
     "supabase": "2.117.0",
     "tailwindcss": "4.3.3",
-    "typescript": "7.0.2",
+    "typescript": "6.0.3",
     "vitest": "5.0.1"
   }
 }

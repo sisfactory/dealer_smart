@@ -1,0 +1,89 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --font-size-display-lg: 40px;
+  --line-height-display-lg: 48px;
+  --font-size-display-lg-mobile: 30px;
+  --line-height-display-lg-mobile: 38px;
+  --font-size-headline-xl: 32px;
+  --line-height-headline-xl: 40px;
+  --font-size-headline-xl-mobile: 24px;
+  --line-height-headline-xl-mobile: 32px;
+  --font-size-headline-lg: 24px;
+  --line-height-headline-lg: 32px;
+  --font-size-headline-md: 20px;
+  --line-height-headline-md: 28px;
+  --font-size-headline-sm: 16px;
+  --line-height-headline-sm: 24px;
+  --font-size-body-lg: 15px;
+  --line-height-body-lg: 24px;
+  --font-size-body-md: 13px;
+  --line-height-body-md: 20px;
+  --font-size-body-sm: 12px;
+  --line-height-body-sm: 18px;
+  --font-size-label-md: 12px;
+  --line-height-label-md: 16px;
+  --font-size-label-sm: 11px;
+  --line-height-label-sm: 14px;
+  --font-size-label-micro: 10px;
+  --line-height-label-micro: 12px;
+  --bg-viewport: #f8f9ff;
+  --surface: #f8f9ff;
+  --surface-card: #ffffff;
+  --surface-card-high: #f0f4fd;
+  --surface-input: #ffffff;
+  --border-regular: #e2e8f0;
+  --border-subtle: #edf2f7;
+  --color-primary: #1e3a5f;
+  --color-primary-hover: #162c48;
+  --color-primary-foreground: #ffffff;
+  --focus-ring: #1e3a5f;
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --status-success: #059669;
+  --status-warning: #d97706;
+  --status-danger: #dc2626;
+}
+
+.dark {
+  --bg-viewport: #090e17;
+  --surface: #0f131d;
+  --surface-card: #171c25;
+  --surface-card-high: #1e2430;
+  --surface-input: #0a0e18;
+  --border-regular: #263042;
+  --border-subtle: #1e2533;
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-primary-foreground: #ffffff;
+  --focus-ring: #2563eb;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --status-success: #10b981;
+  --status-warning: #f59e0b;
+  --status-danger: #ef4444;
+}
+
+html {
+  background: var(--bg-viewport);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--surface);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-headline);
+}

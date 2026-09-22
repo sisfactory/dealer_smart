@@ -1,0 +1,21 @@
+# Dependencies and build output
+node_modules/
+.next/
+out/
+
+# Local environment files
+.env*
+!.env.example
+
+# Test output
+coverage/
+playwright-report/
+test-results/
+
+# Tooling artifacts
+*.tsbuildinfo
+.eslintcache
+
+# Supabase local CLI generated state (configuration remains versioned)
+supabase/.temp/
+supabase/.branches/
