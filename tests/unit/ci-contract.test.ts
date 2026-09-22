@@ -26,7 +26,7 @@ const verifySteps: readonly ApprovedStep[] = [
   {
     kind: "action",
     uses: setupNodeAction,
-    with: { "node-version": "24.21.0", cache: "pnpm" },
+    with: { "node-version": "24.21.0" },
   },
   {
     kind: "run",
@@ -152,6 +152,22 @@ function validateWorkflow(workflow: string): void {
 }
 
 const rejectedMutations: MutationFixture[] = [
+  {
+    name: "pnpm cache before Corepack in the verify job",
+    mutate: (workflow) =>
+      workflow.replace(
+        "          node-version: 24.21.0",
+        "          node-version: 24.21.0\n          cache: pnpm",
+      ),
+  },
+  {
+    name: "pnpm cache before Corepack in the e2e job",
+    mutate: (workflow) =>
+      workflow.replace(
+        /(  e2e:[\s\S]*?          node-version: 24\.21\.0)/,
+        "$1\n          cache: pnpm",
+      ),
+  },
   {
     name: "a third job",
     mutate: (workflow) =>
